@@ -1,0 +1,12 @@
+---
+
+is_debug: true
+listen:
+  type: port
+  port: 8000
+storage:
+  user: med_uchet_atlas_admin
+  password: RrP9w73LNO6twPFA
+token:
+  key: mYq3t6w9z$C&F)J@
+
