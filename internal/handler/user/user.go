@@ -2,27 +2,30 @@ package user
 
 import (
 	"github.com/Bukhashov/med_uchet/configs"
-	"github.com/Bukhashov/med_uchet/internal/model"
 	"github.com/Bukhashov/med_uchet/pkg/logging"
 
-	"go.mongodb.org/mongo-driver/mongo"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
 )
 
 type User interface {
 	Singin(c *gin.Context)
 	Singup(c *gin.Context)
 	Delete(c *gin.Context)
+	Confirm(c *gin.Context)
 }
 
 type user struct {
-	client	*mongo.Client
+	client	*pgxpool.Pool
 	cfg 	*configs.Config
 	logger 	*logging.Logger
-	model 	model.User
 }
 
-func NewUserHandler(cfg *configs.Config, logger *logging.Logger, client *mongo.Client) User {
+
+var validate *validator.Validate
+
+func NewUserHandler(cfg *configs.Config, logger *logging.Logger, client	*pgxpool.Pool) User {
 	return &user{
 		cfg: cfg,
 		logger: logger,

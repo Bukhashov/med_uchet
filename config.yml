@@ -5,8 +5,22 @@ listen:
   type: port
   port: 8000
 storage:
-  user: med_uchet_atlas_admin
-  password: RrP9w73LNO6twPFA
+  host: localhost
+  port: 5432
+  name: med_uchet
+  user: muqiyat
+  password: muqiyat
+  # host: dpg-cg6be3l269v5l65ftl9g-a.frankfurt-postgres.render.com
+  # port: 5432
+  # name: med_uchet
+  # user: med_uchet_admin
+  # password: RBo5Du7wjOPGlQADQZtnDTYj9QyPqp65
 token:
   key: mYq3t6w9z$C&F)J@
+smtp:
+  server: smtp.mail.ru
+  port: 456
+  email: med.uchet@mail.ru
+  password: 3Srxs0tuxRLj8uQUCnrX
 
+# postgres://med_uchet_admin:RBo5Du7wjOPGlQADQZtnDTYj9QyPqp65@dpg-cg6be3l269v5l65ftl9g-a.frankfurt-postgres.render.com/med_uchet

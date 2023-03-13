@@ -19,12 +19,15 @@ type Config struct {
 }
 
 type StorageConfig struct {
+	Host		string `yaml:"host"`
+	Port		string `yaml:"port"`
+	Name		string `yaml:"name"`
 	User 		string `yaml:"user"`
 	Password 	string `yaml:"password"`
 }
 
 type Smtp struct {
-	Mail 		string `yaml:"mail"`
+	Mail 		string `yaml:"email"`
 	Password 	string `yaml:"password"`
 	Server 		string `yaml:"server"`
 	Port 		string `yaml:"port"`

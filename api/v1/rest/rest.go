@@ -6,13 +6,12 @@ import (
 	"github.com/Bukhashov/med_uchet/pkg/logging"
 	"github.com/Bukhashov/med_uchet/configs"
 	
-	
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/gin-gonic/gin"
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type rest struct {
-	client	*mongo.Client
+	client	*pgxpool.Pool
 	cfg 	*configs.Config
 	logger 	*logging.Logger
 }
@@ -26,7 +25,8 @@ func (r *rest) Run() {
 		authPath := v1.Group("/auth"); {
 			authPath.POST("/singup", userHandler.Singup)
 			authPath.POST("/singin", userHandler.Singin)
-			authPath.POST("/delete", userHandler.Delete)
+			authPath.POST("/confrim", userHandler.Confirm)
+			authPath.DELETE("/delete", userHandler.Delete)
 		}
 		
 	}
@@ -37,7 +37,7 @@ func (r *rest) Run() {
 
 }
 
-func NewRest(cfg *configs.Config, logger *logging.Logger, client *mongo.Client) *rest {
+func NewRest(cfg *configs.Config, logger *logging.Logger, client *pgxpool.Pool) *rest {
 	return &rest{
 		cfg: cfg,
 		logger: logger,
