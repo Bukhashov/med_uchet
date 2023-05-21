@@ -88,6 +88,11 @@ class Group {
         const groups = await modelGroup.find({ title: title});
         res.status(200).json(groups);
     }
+
+    getAllGruops = async (req, res) => {
+        const allGroups = await modelGroup.find({});
+        res.status(200).json(res);
+    }
 }
 
 module.exports = new Group;

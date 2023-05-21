@@ -43,7 +43,7 @@ const AccountScreen = ({navigation}) => {
         <SafeAreaView style={{ }}>
             <ScrollView horizontal={false} showsHorizontalScrollIndicator={true}> 
                 <View style={{  }}>
-                    <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', padding: 5}}>
+                    <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', padding: 12}}>
                         <Avatar size={120} rounded source={{uri: avatar}} />
                     </View>
 
@@ -53,7 +53,7 @@ const AccountScreen = ({navigation}) => {
                     <UserInfoComponent title={"UID"} vel={uid} /> 
 
                     <View style={{margin: 5, padding: 5, display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                        <Text style={{color: "#A2A9AB", borderRadius: 8, borderColor: '#AAAFB0', borderWidth: 1, paddingHorizontal: 15, paddingVertical: 10 }} onPress={()=> {onPressLogout()}}>Log out</Text>
+                        <Text style={{color: "#000", borderRadius: 8, borderColor: '#A5ABAB', borderWidth: 1, paddingHorizontal: 15, paddingVertical: 10 }} onPress={()=> {onPressLogout()}}>Log out</Text>
                     </View>
                 </View>
             </ScrollView>

@@ -13,6 +13,8 @@ router.post('/group/create', Group.create);
 router.get('/group/my/:uid', Group.myGet);
 // get where user is participants in groups
 router.get('/group/all/:uid', Group.get);
+router.get('/group/all', Group.getAllGruops);
+
 // get group
 router.get('/group/:gid', Group.getGroup);
 // add new user for participants

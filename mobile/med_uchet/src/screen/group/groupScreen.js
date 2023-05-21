@@ -71,11 +71,11 @@ const GroupScreen = ({navigation}) => {
     return (
         <View>
             <View style={{paddingVertical: 8, paddingHorizontal: 12, width: width, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <View ><Text style={{color: "#A2A9AB", fontSize: 18}}>Create group</Text></View>
-                <View style={{width: 42, borderColor: '#A2A9AB', borderRadius: 6, borderWidth: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
+                <View ><Text style={{color: "#000", fontSize: 18}}>Create group</Text></View>
+                <View style={{width: 42, borderColor: '#000', borderRadius: 6, borderWidth: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
                     <Text 
                         onPress={() => onPressCreateGroupBtn()} 
-                        style={{color: "#A2A9AB", fontSize: 22, paddingHorizontal: 10, paddingVertical: 2}}
+                        style={{color: "#000", fontSize: 22, paddingHorizontal: 10, paddingVertical: 2}}
                     >{createBtnVel}
                     </Text>
                 </View>
@@ -84,17 +84,17 @@ const GroupScreen = ({navigation}) => {
             {/* Create Group */}
             <View style={isCreate ? { display: 'flex', paddingHorizontal: 16, paddingVertical: 8,} : { display: 'none'}}>
                 <View style={{ display: 'flex', justifyContent: 'flex-start', flexDirection: 'row', alignItems: 'center' }}> 
-                    <Text style={{color: "#A2A9AB"}}>Title: </Text>
+                    <Text style={{color: "#000"}}>Title: </Text>
                     <TextInput
                         numberOfLines={1}
                         maxLength={50}
                         onChangeText={vel => onPressNewGroupTitle(vel)} 
                         value={newGroupTitle}
-                        style={{ width: 230, height: 32, padding: 8, marginHorizontal: 8, color: "#A2A9AB", borderColor: '#A2A9AB', borderRadius: 8, borderWidth: 1, }}
+                        style={{ width: 230, height: 32, padding: 8, marginHorizontal: 8, color: "#000", borderColor: '#000', borderRadius: 8, borderWidth: 1, }}
                         />
                     <View>
                         <Text onPress={()=> createNewGroup()}
-                            style={{color: "#A2A9AB", padding: 8, borderRadius: 8, borderColor: "#A2A9AB", borderWidth: 1, }}>Create</Text>
+                            style={{color: "#000", padding: 8, borderRadius: 8, borderColor: "#000", borderWidth: 1, }}>Create</Text>
                     </View>
                 </View>
             </View>
@@ -115,11 +115,11 @@ const GroupScreen = ({navigation}) => {
                                         margin: 15,
                                         paddingHorizontal: 10, paddingVertical: 10,
                                         width: width-35, height: 55, 
-                                        display: 'flex', flexDirection: 'row', justifyContent: 'center',  
-                                        backgroundColor: "#A2A9AB",
+                                        display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center',
+                                        backgroundColor: "#A5ABAB",
                                     }}
                                 >
-                                    <Text style={{color: '#000'}}>{group.title}</Text>
+                                    <Text style={{color: '#fff', fontSize: 16, fontWeight: 500, }}>{group.title}</Text>
                                 </View>
                             </TouchableOpacity>
                         )

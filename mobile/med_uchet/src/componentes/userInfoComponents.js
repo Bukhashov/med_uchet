@@ -8,8 +8,8 @@ const UserInfoComponent = (props) => {
     return (
         <View style={{paddingTop: 10, paddingBottom: 10}}>
             <View style={{marginLeft: 15, marginRight: 15, padding: 5, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                <View><Text style={{color: '#AAAFB0' }}>{props.title}</Text></View>  
-                <View><Text style={{color: "#A2A9AB"}}>{props.vel}</Text></View>
+                <View><Text style={{color: "#000" }}>{props.title}</Text></View>  
+                <View><Text style={{color: "#000"}}>{props.vel}</Text></View>
             </View>
             <LineComponent />
         </View>

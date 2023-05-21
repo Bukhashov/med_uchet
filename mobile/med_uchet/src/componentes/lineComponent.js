@@ -15,7 +15,7 @@ const LineComponent = () => {
                 width: width-20, 
                 height: 3, 
                 borderRadius: 10,
-                backgroundColor: '#D0D3D4'
+                backgroundColor: '#A5ABAB'
             }} />
         </View>
         

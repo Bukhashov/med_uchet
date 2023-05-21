@@ -24,17 +24,20 @@ const GroupReadScreen = (props) => {
         }
     }
     const addTodo = async () => {
-        try {
-            await axios.post(`${config.API_URI}${config.API_VERSION}/group/${props.route.params.content.id}/add/todo`, {
-                todo: newTodo
-            })
-            fatchTodos();
-            setNewTodo("");
-
+        if(newTodo.length >= 1) {
+            try {
+                await axios.post(`${config.API_URI}${config.API_VERSION}/group/${props.route.params.content.id}/add/todo`, {
+                    todo: newTodo
+                })
+                fatchTodos();
+                setNewTodo("");
+    
+            }
+            catch(e) {
+                console.log(e);
+            }
         }
-        catch(e) {
-            console.log(e);
-        }
+        
     }
     const onPressNewTodo = (vel) => {
         setNewTodo(vel);
@@ -60,11 +63,11 @@ const GroupReadScreen = (props) => {
     return (
         <View>
             <View style={{paddingVertical: 15, display: 'flex', flexDirection: 'row', justifyContent: 'center', }}>
-                <Text style={{color: "#fff", fontSize: 24}} >{props.route.params.content.title}</Text>
+                <Text style={{color: "#000", fontWeight: 500, fontSize: 24}} >{props.route.params.content.title}</Text>
             </View>
             
             <View style={{paddingHorizontal: 10, display: 'flex', flexDirection: 'row', alignItems: 'center',  }}>
-                <Text style={{color: "#fff"}}>Add Todo:</Text>
+                <Text style={{color: "#000"}}>Add Todo:</Text>
                 <TextInput 
                     numberOfLines={1} 
                     maxLength={250}
@@ -73,36 +76,38 @@ const GroupReadScreen = (props) => {
                     style={{ 
                         width: 230, height: 32, 
                         padding: 8, marginHorizontal: 8, 
-                        color: "#A2A9AB", borderColor: '#A2A9AB', 
+                        color: "#000", borderColor: '#000', 
                         borderRadius: 8, borderWidth: 1, 
                     }}
                 />
                 <Text onPress={() => addTodo()}
-                    style={{color: "#fff", paddingHorizontal: 17, paddingVertical: 5, borderColor: "#fff", borderWidth: 1, borderRadius: 5,}}
+                    style={{color: "#000", paddingHorizontal: 17, paddingVertical: 5, borderColor: "#000", borderWidth: 1, borderRadius: 5,}}
                     >Add</Text>
             </View>
             <View>
-                <Text style={{paddingHorizontal: 10, paddingVertical: 5, color: "#fff", }}>Todo</Text>
-                <View style={{width: width-20, height: 2, backgroundColor: "#fff", marginHorizontal: 10, marginVertical: 10, borderRadius: 8,}}></View>
+                <Text style={{paddingHorizontal: 10, paddingVertical: 5, color: "#000", }}>Todo</Text>
+                <View style={{width: width-20, height: 2, backgroundColor: "#000", marginHorizontal: 10, marginVertical: 10, borderRadius: 8,}}></View>
             </View>
             <SafeAreaView>
                 <ScrollView horizontal={false} showsHorizontalScrollIndicator={true}>
                     {
                         todos.map(todo => (
-                            <View style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                margin: 15,
-                                paddingHorizontal: 5,
-                                paddingVertical: 15,
-                                backgroundColor: "#A2A9AB",
-                            }}>
+                            <View 
+                                key={todo._id}
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    margin: 15,
+                                    paddingHorizontal: 5,
+                                    paddingVertical: 15,
+                                    backgroundColor: "#A5ABAB",
+                                }}>
                                 <Text style={{color: "#fff"}}>{todo.title}</Text>
                                 <Text 
                                     onPress={() => deleteTodo(todo._id)}
-                                style={{padding: 5, color: "#fff"}}>delete</Text>
+                                style={{padding: 5, fontSize: 14, color: "#fff"}}>delete</Text>
                             </View>
                         ))
                     }
