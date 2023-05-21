@@ -61,6 +61,28 @@ class Group {
         
     }
 
+    addTodo = async (req, res) => {
+        const { gid } = req.params;
+        const {todo, dis} = req.body;
+        new modelTodo({
+            group: gid,
+            title: todo,
+            dis: dis
+        }).save();
+
+        res.status(200).json({ massage: "saved" });
+    }
+    getTodo = async (req, res) => {
+        const { gid } = req.params;  
+        const todos = await modelTodo.find({group: gid});
+        res.status(200).json(todos);
+    }
+    deleteTodo = async (req, res) => {
+        const { tid } = req.body;
+        await modelTodo.remove({_id: tid});
+        res.status(200).json({massage: "removed"});
+    }
+
     Seorch = async (req, res) => {
         const {title} = req.params;
 

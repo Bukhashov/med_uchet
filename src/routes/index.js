@@ -20,7 +20,12 @@ router.post('/group/add/user', Group.addUser);
 router.post('/group/remove/user', Group.RemoveUser);
 
 
-router.get('/group/seorch/:title', Group.Seorch)
+// todo
+router.get('/group/:gid/todo', Group.getTodo);
+router.post('/group/:gid/add/todo', Group.addTodo);
+router.delete('/group/todo', Group.deleteTodo);
+
+router.get('/group/seorch/:title', Group.Seorch);
 
 
 module.exports = router;

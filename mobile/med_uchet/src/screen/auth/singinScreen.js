@@ -20,17 +20,19 @@ const SinginScreen = ({navigation}) => {
 
     const onPressLogin = async () => {
         try{
-            await axios.post(`${config.API_URI}/singin`, {
+            await axios.post(`${config.API_URI}${config.API_VERSION}/singin`, {
                 email: login,
                 password: password
             }).then(async (response) => {
                 await AsyncStorage.setItem('uid', response.data.uid)
-                await AsyncStorage.setItem('fullname', response.data.fullname)
+                await AsyncStorage.setItem('lastname', response.data.lastname)
+                await AsyncStorage.setItem('firstname', response.data.firstname)
                 await AsyncStorage.setItem('email', response.data.email)
-                await AsyncStorage.setItem('city', response.data.city)
+                console.log(response.data);
+                
             });
-            console.log("login ok")
-            navigation.navigate('tabNavigator');
+            
+            navigation.navigate('mainNavigator');
         }
         catch(e){
             console.log(e);
@@ -48,16 +50,16 @@ const SinginScreen = ({navigation}) => {
         <View style={{width: width, height: height-300, justifyContent: 'center', alignItems: 'center', }}>
             <View style={{  }}>
                 <View style={{ paddingBottom: 15, }}>
-                    <Text style={{ fontSize: 26, fontWeight: '400',  textAlign: 'center'}}>Qosh keldińiz</Text>
+                    <Text style={{ color: "#A2A9AB", fontSize: 26, fontWeight: '400',  textAlign: 'center'}}>Qosh keldińiz</Text>
                 </View>
                 
                 <View style={{ paddingBottom: 25, paddingTop: 5, alignItems: 'center',  display: 'flex', flexDirection: 'row' }}>
                     <View style={{ paddingRight: 12 }}>
                         <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                            <Text style={{ fontSize: 18, padding: 5, }}>Email</Text>
+                            <Text style={{ color: "#A2A9AB", fontSize: 18, padding: 5, }}>Email</Text>
                         </View>
                         <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                            <Text style={{ fontSize: 18, padding: 5, }}>Password</Text>
+                            <Text style={{ color: "#A2A9AB", fontSize: 18, padding: 5, }}>Password</Text>
                         </View>
                         
                     </View> 
@@ -69,7 +71,7 @@ const SinginScreen = ({navigation}) => {
                                 maxLength={50}
                                 onChangeText={uLogin => onPressChangeTextInputLogin(uLogin)} 
                                 value={login}
-                                style={{ width: 230, height: 32, padding: 8, borderColor: '#000', borderWidth: 1, }}
+                                style={{ color:"#A2A9AB", width: 230, height: 32, padding: 8, borderColor: "#A2A9AB", borderWidth: 1, }}
                             />
                         </View>
                      {/* password */}
@@ -79,7 +81,7 @@ const SinginScreen = ({navigation}) => {
                                 maxLength={50}
                                 onChangeText={uPass => onPressChangeTextInputPassword(uPass)} 
                                 value={password}
-                                style={{ width: 230, height: 32, padding: 8, borderColor: '#000', borderWidth: 1, }}
+                                style={{ color: "#A2A9AB", width: 230, height: 32, padding: 8, borderColor: "#A2A9AB", borderWidth: 1, }}
                             />
                         </View>
                     </View>
@@ -96,12 +98,12 @@ const SinginScreen = ({navigation}) => {
                 <View style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 5, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <TouchableOpacity onPress={()=> console.log('e') }>
                         <View style={{ padding: 15}}>
-                            <Text >qupıa sózdi umytyp qaldym</Text>
+                            <Text style={{color: "#A2A9AB"}} >qupıa sózdi umytyp qaldym</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=> onPressAuth() }>
                         <View style={{ padding: 15}}>
-                            <Text >tirkeý</Text>
+                            <Text style={{color: "#A2A9AB"}}>tirkeý</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

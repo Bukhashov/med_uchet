@@ -9,21 +9,26 @@ var height = Dimensions.get('window').height; //full height
 const SingupScreen = ({navigation}) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("")
-    const [fullname, setUserFullName] = useState("")
+    const [firstname, setFirstname] = useState("")
+    const [lastname, setLastname] = useState("")
 
-    const onPressChangeTextInputLogin = (userLogin) => {
-        setLogin(userLogin)
+    const onPressChangeTextInputLogin = (vel) => {
+        setLogin(vel)
     }
-    const onPressChangeTextInputPassword = (userPassword) => {
-        setPassword(userPassword)
+    const onPressChangeTextInputPassword = (vel) => {
+        setPassword(vel)
     }
-    const onPressChangeTextInputFullname = (userFullname) => {
-        setUserFullName(userFullname)
+    const onPressChangeTextInputFirstname = (vel) => {
+        setFirstname(vel)
+    }
+    const onPressChangeTextInputLastname = (vel) => {
+        setLastname(vel)
     }
 
     const onPressAuth = async () => {
-        const res = await axios.post(`${config.API_URI}/singup`, {
-            fullname: fullname,
+        const res = await axios.post(`${config.API_URI}${config.API_VERSION}/singup`, {
+            lastname: lastname,
+            firstname: firstname,
             password: password,
             email: login
         });
@@ -36,33 +41,47 @@ const SingupScreen = ({navigation}) => {
         <View style={{width: width, height: height-300, justifyContent: 'center', alignItems: 'center', }}>
             <View style={{  }}>
                 <View style={{ paddingBottom: 15, }}>
-                    <Text style={{ fontSize: 26, fontWeight: '400',  textAlign: 'center'}}>Qosh keldińiz</Text>
+                    <Text style={{ color: "#A2A9AB", fontSize: 26, fontWeight: '400',  textAlign: 'center'}}>Qosh keldińiz</Text>
                 </View>
 
                 <View style={{ paddingBottom: 25, paddingTop: 5, alignItems: 'center',  display: 'flex', flexDirection: 'row' }}>
                     <View style={{ paddingRight: 12 }}>
-                        <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                                <Text style={{ fontSize: 18, padding: 5, }}>FullName</Text>
+                            <View style={{paddingBottom: 15, paddingTop: 15,}}>
+                                <Text style={{ color: "#A2A9AB", fontSize: 18, padding: 5, }}>Fistname</Text>
                             </View>
                             <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                                <Text style={{ fontSize: 18, padding: 5, }}>Email</Text>
+                                <Text style={{ color: "#A2A9AB", fontSize: 18, padding: 5, }}>Lastname</Text>
                             </View>
                             <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                                <Text style={{ fontSize: 18, padding: 5, }}>Password</Text>
+                                <Text style={{ color: "#A2A9AB", fontSize: 18, padding: 5, }}>Email</Text>
+                            </View>
+                            <View style={{paddingBottom: 15, paddingTop: 15,}}>
+                                <Text style={{ color: "#A2A9AB", fontSize: 18, padding: 5, }}>Password</Text>
                             </View>
                             
                         </View> 
                     <View style={{ display: 'flex', alignItems: 'center', }}>
-                    {/* email */}
+                    
+                    {/* firstname */}
                     <View style={{paddingBottom: 15, paddingTop: 15,}}>
                             <TextInput
                                 numberOfLines={1} 
                                 maxLength={50}
-                                onChangeText={uFullname => onPressChangeTextInputFullname(uFullname)} 
-                                value={fullname}
-                                style={{ width: 230, height: 32, padding: 8, borderColor: '#000', borderWidth: 1, }}
+                                onChangeText={vel => onPressChangeTextInputFirstname(vel)} 
+                                value={firstname}
+                                style={{ color: "#A2A9AB", width: 230, height: 32, padding: 8, borderColor: "#A2A9AB", borderWidth: 1, }}
                             />
                         </View>
+                    {/* lastname */}
+                    <View style={{paddingBottom: 15, paddingTop: 15,}}>
+                            <TextInput
+                                numberOfLines={1} 
+                                maxLength={50}
+                                onChangeText={vel => onPressChangeTextInputLastname(vel)} 
+                                value={lastname}
+                                style={{ color: "#A2A9AB", width: 230, height: 32, padding: 8, borderColor: "#A2A9AB", borderWidth: 1, }}
+                            />
+                    </View>
                     {/* email */}
                         <View style={{paddingBottom: 15, paddingTop: 15,}}>
                             <TextInput
@@ -70,7 +89,7 @@ const SingupScreen = ({navigation}) => {
                                 maxLength={50}
                                 onChangeText={uLogin => onPressChangeTextInputLogin(uLogin)} 
                                 value={login}
-                                style={{ width: 230, height: 32, padding: 8, borderColor: '#000', borderWidth: 1, }}
+                                style={{ color: "#A2A9AB", width: 230, height: 32, padding: 8, borderColor: "#A2A9AB", borderWidth: 1, }}
                             />
                         </View>
                      {/* password */}
@@ -79,7 +98,7 @@ const SingupScreen = ({navigation}) => {
                                 numberOfLines={1} maxLength={50}
                                 onChangeText={uPass => onPressChangeTextInputPassword(uPass)} 
                                 value={password}
-                                style={{ width: 230, height: 32, padding: 8, borderColor: '#000', borderWidth: 1, }}
+                                style={{ color: "#A2A9AB", width: 230, height: 32, padding: 8, borderColor: "#A2A9AB", borderWidth: 1, }}
                             />
                         </View>
                     </View>
@@ -88,7 +107,7 @@ const SingupScreen = ({navigation}) => {
                     <View style={{ width: 180, }}>
                         <Button 
                             onPress={()=> onPressAuth()}
-                            color="#000"
+                            color="#A2A9AB"
                             title={'tirkeý'}
                         />
                     </View>
