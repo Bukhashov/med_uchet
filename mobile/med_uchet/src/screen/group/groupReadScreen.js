@@ -26,8 +26,11 @@ const GroupReadScreen = (props) => {
     const addTodo = async () => {
         try {
             await axios.post(`${config.API_URI}${config.API_VERSION}/group/${props.route.params.content.id}/add/todo`, {
-
+                todo: newTodo
             })
+            fatchTodos();
+            setNewTodo("");
+
         }
         catch(e) {
             console.log(e);
@@ -35,6 +38,17 @@ const GroupReadScreen = (props) => {
     }
     const onPressNewTodo = (vel) => {
         setNewTodo(vel);
+    }
+    const deleteTodo = async (id) => {
+        console.log("eee")
+        try{
+            await axios.delete(`${config.API_URI}${config.API_VERSION}/group/todo`, {
+                tid: id
+            })
+            fatchTodos();
+        }catch(e){
+            console.log(e);
+        }
     }
 
     useFocusEffect(
@@ -73,7 +87,25 @@ const GroupReadScreen = (props) => {
             </View>
             <SafeAreaView>
                 <ScrollView horizontal={false} showsHorizontalScrollIndicator={true}>
-                    
+                    {
+                        todos.map(todo => (
+                            <View style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                margin: 15,
+                                paddingHorizontal: 5,
+                                paddingVertical: 15,
+                                backgroundColor: "#A2A9AB",
+                            }}>
+                                <Text style={{color: "#fff"}}>{todo.title}</Text>
+                                <Text 
+                                    onPress={() => deleteTodo(todo._id)}
+                                style={{padding: 5, color: "#fff"}}>delete</Text>
+                            </View>
+                        ))
+                    }
                 </ScrollView>
             </SafeAreaView>
         </View>

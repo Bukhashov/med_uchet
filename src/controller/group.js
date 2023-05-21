@@ -63,7 +63,7 @@ class Group {
 
     addTodo = async (req, res) => {
         const { gid } = req.params;
-        const {todo, dis} = req.body;
+        const { todo } = req.body;
         new modelTodo({
             group: gid,
             title: todo,
@@ -78,7 +78,7 @@ class Group {
     }
     deleteTodo = async (req, res) => {
         const { tid } = req.body;
-        await modelTodo.remove({_id: tid});
+        await modelTodo.findOneAndRemove({_id: tid});
         res.status(200).json({massage: "removed"});
     }
 
