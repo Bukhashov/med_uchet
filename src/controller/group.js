@@ -91,7 +91,7 @@ class Group {
 
     getAllGruops = async (req, res) => {
         const allGroups = await modelGroup.find({});
-        res.status(200).json(res);
+        res.status(200).json(allGroups);
     }
 }
 

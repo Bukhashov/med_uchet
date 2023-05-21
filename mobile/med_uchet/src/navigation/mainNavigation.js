@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 // Screen
 import GroupNavigation from './groupNavigation';
-import HomeScreen from '../screen/home/homeScreen';
+import HomeNavigation from './homeNavigation';
 import ProfileScreen from '../screen/auth/userScreen';
 
 const Tab = createBottomTabNavigator();
@@ -68,7 +68,7 @@ const MainNavigation = ({navigation}) => {
                 },
             })}
         >
-            <Tab.Screen name="Главный"  component={HomeScreen} />
+            <Tab.Screen name="Главный"  component={HomeNavigation} />
             <Tab.Screen name="Группа" component={GroupNavigation} />
             <Tab.Screen name="Пользователь" component={ProfileScreen} />
         </Tab.Navigator>
