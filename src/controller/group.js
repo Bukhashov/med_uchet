@@ -67,7 +67,6 @@ class Group {
         new modelTodo({
             group: gid,
             title: todo,
-            dis: dis
         }).save();
 
         res.status(200).json({ massage: "saved" });
