@@ -40,9 +40,9 @@ const GroupReadScreen = (props) => {
         setNewTodo(vel);
     }
     const deleteTodo = async (id) => {
-        console.log("eee")
+        console.log(id)
         try{
-            await axios.delete(`${config.API_URI}${config.API_VERSION}/group/todo`, {
+            await axios.post(`${config.API_URI}${config.API_VERSION}/group/todo`, {
                 tid: id
             })
             fatchTodos();

@@ -23,7 +23,7 @@ router.post('/group/remove/user', Group.RemoveUser);
 // todo
 router.get('/group/:gid/todo', Group.getTodo);
 router.post('/group/:gid/add/todo', Group.addTodo);
-router.delete('/group/todo', Group.deleteTodo);
+router.post('/group/todo', Group.deleteTodo);
 
 router.get('/group/seorch/:title', Group.Seorch);
 
