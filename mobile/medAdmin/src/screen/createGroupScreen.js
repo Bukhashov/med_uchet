@@ -14,7 +14,7 @@ const CreateGroupScreen = () => {
         try{
             await axios.post(`${config.API_URI}${config.API_VERSION}/group/create`, {
                 uid: await AsyncStorage.getItem("uid").then(async data => data),
-                title: newGroupTitle,
+                title: newTitle,
                 subject: newSubject,
             }).then(res => {
                 setNewTitle("");

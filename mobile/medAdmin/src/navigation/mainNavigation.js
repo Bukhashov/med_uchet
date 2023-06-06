@@ -1,12 +1,33 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { useFocusEffect } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import MainScreen from '../screen/group/mainScreen';
 import ProfileScreen from '../screen/auth/profileScreen';
 import CreateGroupScreen from '../screen/createGroupScreen';
 
 const Drawer = createDrawerNavigator();
 
-const MainNavigation = () => {
+const MainNavigation = ({navigation}) => {
+    
+    const controller = async () => {
+        try{
+            await AsyncStorage.getItem('uid').then((data) => {
+                if(data == "" || data == null) navigation.navigate('singin');
+            })
+        }
+        catch(e) {
+            console.log(`Error Main Navigation get token : ${e}`);
+        }
+    }
+
+    useFocusEffect(
+        React.useCallback(() => {
+            controller();
+        }, [])
+    )
+    
     return (
         <Drawer.Navigator initialRouteName="Гловный"
             screenOptions={{
