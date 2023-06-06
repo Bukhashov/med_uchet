@@ -1,11 +1,11 @@
 import { useFocusEffect } from "@react-navigation/native";
 import React from "react";
-import { View, SafeAreaView, ScrollView } from "react-native"
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from "react-native"
 import axios from "axios";
 import config from "../../../config";
 
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     const [allGroup, setAllGroup] = React.useState([]);
 
     const featData = () => {
@@ -26,13 +26,36 @@ const HomeScreen = () => {
             featData();
         }, [])
     )
+    
 
     return (
         <View>
              <SafeAreaView>
                 <ScrollView horizontal={false} showsHorizontalScrollIndicator={true}> 
                 {
-
+                    allGroup.map(group => (
+                        <TouchableOpacity
+                            key={group._id}
+                            onPress={() => {navigation.navigate("homeReadScreen", {
+                                content: {
+                                    id: group._id,
+                                    title: group.title
+                                }
+                            })}}
+                        >
+                            <View style={{
+                                marginHorizontal: 18,
+                                marginVertical: 8,
+                                paddingHorizontal: 18,
+                                paddingVertical: 18,
+                                borderRadius: 8,
+                                backgroundColor: "#A5ABAB",
+                                
+                            }}>
+                                <Text style={{ color: "#fff", fontSize: 16 }}>{group.title}</Text>
+                            </View>
+                        </TouchableOpacity>
+                    ))
                 }
                 </ScrollView>
             </SafeAreaView>

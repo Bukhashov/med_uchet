@@ -47,13 +47,13 @@ const AccountScreen = ({navigation}) => {
                         <Avatar size={120} rounded source={{uri: avatar}} />
                     </View>
 
-                    <UserInfoComponent title={"Lastname:"} vel={lastname} />
-                    <UserInfoComponent title={"Firstname:"} vel={firstname} />
-                    <UserInfoComponent title={"Email"} vel={email} />                
+                    <UserInfoComponent title={"Фамилия:"} vel={lastname} />
+                    <UserInfoComponent title={"Имя:"} vel={firstname} />
+                    <UserInfoComponent title={"Почта"} vel={email} />                
                     <UserInfoComponent title={"UID"} vel={uid} /> 
 
                     <View style={{margin: 5, padding: 5, display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                        <Text style={{color: "#000", borderRadius: 8, borderColor: '#A5ABAB', borderWidth: 1, paddingHorizontal: 15, paddingVertical: 10 }} onPress={()=> {onPressLogout()}}>Log out</Text>
+                        <Text style={{color: "#000", borderRadius: 8, borderColor: '#A5ABAB', borderWidth: 1, paddingHorizontal: 15, paddingVertical: 10 }} onPress={()=> {onPressLogout()}}>выйти</Text>
                     </View>
                 </View>
             </ScrollView>

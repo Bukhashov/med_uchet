@@ -67,14 +67,14 @@ const GroupReadScreen = (props) => {
             </View>
             
             <View style={{paddingHorizontal: 10, display: 'flex', flexDirection: 'row', alignItems: 'center',  }}>
-                <Text style={{color: "#000"}}>Add Todo:</Text>
+                <Text style={{color: "#000"}}>Задача:</Text>
                 <TextInput 
                     numberOfLines={1} 
                     maxLength={250}
                     onChangeText={vel => onPressNewTodo(vel)} 
                     value={newTodo}
                     style={{ 
-                        width: 230, height: 32, 
+                        width: 220, height: 32, 
                         padding: 8, marginHorizontal: 8, 
                         color: "#000", borderColor: '#000', 
                         borderRadius: 8, borderWidth: 1, 
@@ -82,10 +82,10 @@ const GroupReadScreen = (props) => {
                 />
                 <Text onPress={() => addTodo()}
                     style={{color: "#000", paddingHorizontal: 17, paddingVertical: 5, borderColor: "#000", borderWidth: 1, borderRadius: 5,}}
-                    >Add</Text>
+                    >Создать</Text>
             </View>
             <View>
-                <Text style={{paddingHorizontal: 10, paddingVertical: 5, color: "#000", }}>Todo</Text>
+                <Text style={{paddingHorizontal: 10, paddingVertical: 5, color: "#000", }}>Задачи</Text>
                 <View style={{width: width-20, height: 2, backgroundColor: "#000", marginHorizontal: 10, marginVertical: 10, borderRadius: 8,}}></View>
             </View>
             <SafeAreaView>
@@ -107,7 +107,7 @@ const GroupReadScreen = (props) => {
                                 <Text style={{color: "#fff"}}>{todo.title}</Text>
                                 <Text 
                                     onPress={() => deleteTodo(todo._id)}
-                                style={{padding: 5, fontSize: 14, color: "#fff"}}>delete</Text>
+                                style={{padding: 5, fontSize: 14, color: "#fff"}}>удалить</Text>
                             </View>
                         ))
                     }

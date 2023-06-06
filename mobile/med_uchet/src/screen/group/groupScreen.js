@@ -71,7 +71,7 @@ const GroupScreen = ({navigation}) => {
     return (
         <View>
             <View style={{paddingVertical: 8, paddingHorizontal: 12, width: width, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <View ><Text style={{color: "#000", fontSize: 18}}>Create group</Text></View>
+                <View ><Text style={{color: "#000", fontSize: 18}}>Создать группу</Text></View>
                 <View style={{width: 42, borderColor: '#000', borderRadius: 6, borderWidth: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
                     <Text 
                         onPress={() => onPressCreateGroupBtn()} 
@@ -84,17 +84,17 @@ const GroupScreen = ({navigation}) => {
             {/* Create Group */}
             <View style={isCreate ? { display: 'flex', paddingHorizontal: 16, paddingVertical: 8,} : { display: 'none'}}>
                 <View style={{ display: 'flex', justifyContent: 'flex-start', flexDirection: 'row', alignItems: 'center' }}> 
-                    <Text style={{color: "#000"}}>Title: </Text>
+                    <Text style={{color: "#000"}}>Заголовка: </Text>
                     <TextInput
                         numberOfLines={1}
                         maxLength={50}
                         onChangeText={vel => onPressNewGroupTitle(vel)} 
                         value={newGroupTitle}
-                        style={{ width: 230, height: 32, padding: 8, marginHorizontal: 8, color: "#000", borderColor: '#000', borderRadius: 8, borderWidth: 1, }}
+                        style={{ width: 200, height: 32, padding: 8, marginHorizontal: 8, color: "#000", borderColor: '#000', borderRadius: 8, borderWidth: 1, }}
                         />
                     <View>
                         <Text onPress={()=> createNewGroup()}
-                            style={{color: "#000", padding: 8, borderRadius: 8, borderColor: "#000", borderWidth: 1, }}>Create</Text>
+                            style={{color: "#000", padding: 8, borderRadius: 8, borderColor: "#000", borderWidth: 1, }}>Создать</Text>
                     </View>
                 </View>
             </View>

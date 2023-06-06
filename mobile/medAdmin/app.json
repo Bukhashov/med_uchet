@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "med_uchet",
-    "slug": "med_uchet",
+    "name": "medAdmin",
+    "slug": "medAdmin",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,16 +21,10 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.med_uchet"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "d8bf8418-4dfa-4cb3-8336-2e601f50bf9b"
-      }
     }
   }
 }
