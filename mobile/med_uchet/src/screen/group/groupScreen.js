@@ -68,6 +68,18 @@ const GroupScreen = ({navigation}) => {
         }, [])
     )
 
+    const deleteTodo = async (id) => {
+        console.log(id)
+        try{
+            await axios.post(`${config.API_URI}${config.API_VERSION}/group/todo`, {
+                tid: await AsyncStorage.getItem("uid").then(async data => data)
+            })
+            fatchTodos();
+        }catch(e){
+            console.log(e);
+        }
+    }
+
     return (
         <View>
             <View style={{paddingVertical: 8, paddingHorizontal: 12, width: width, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -98,6 +110,8 @@ const GroupScreen = ({navigation}) => {
                     </View>
                 </View>
             </View>
+            
+
             <SafeAreaView>
                 <ScrollView horizontal={false} showsHorizontalScrollIndicator={true}> 
                     {
@@ -121,6 +135,7 @@ const GroupScreen = ({navigation}) => {
                                 >
                                     <Text style={{color: '#fff', fontSize: 16, fontWeight: 500, }}>{group.title}</Text>
                                 </View>
+
                             </TouchableOpacity>
                         )
                     }

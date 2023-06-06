@@ -3,12 +3,14 @@ const express = require('express');
 const passsport = require('passport')
 const mongoose = require('mongoose');
 var cors = require('cors');
+const fileUpload = require("express-fileupload");
 
 const routes = require('./src/routes/index');
 
 const port = process.env.APP_PORT | 4000
 const app = express();
 
+app.use(fileUpload({}))
 app.use(express.static('public'));
 app.use(express.json());
 app.use(passsport.initialize());

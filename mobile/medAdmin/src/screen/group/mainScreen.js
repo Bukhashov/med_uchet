@@ -8,7 +8,7 @@ import config from "../../../config";
 
 var width = Dimensions.get('window').width;
 
-const MainScreen = () => {
+const MainScreen = ({navigation}) => {
     const [allGroup, setAllGroup] = useState([]);
 
 
@@ -29,7 +29,6 @@ const MainScreen = () => {
     }, []))
 
 
-
     return (
         <View>
             <SafeAreaView>
@@ -37,19 +36,27 @@ const MainScreen = () => {
                     <View style={{ paddingHorizontal: 15, }}>
                     {
                         allGroup.map((group) => (
-                            <TouchableOpacity 
-                                key={group._id}
-                                style={{
-                                    backgroundColor: "#99A3A4",
-                                    borderRadius: 8,
-                                }}
-                            >
-                                <Text style={{ color: "#fff",  paddingVertical: 15, paddingHorizontal: 8, }}>{group.title}</Text>
-                            </TouchableOpacity>
+
+                                <TouchableOpacity 
+                                    style={{
+                                        marginVertical: 8,
+                                        paddingHorizontal: 12, paddingVertical: 10,
+                                        backgroundColor: "#99A3A4",
+                                        borderRadius: 8,
+                                        display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+                                    }}
+                                    key={group._id}
+                                    onPress={() => {
+                                        navigation.navigate('ReadScreen', {
+                                            
+                                        });
+                                    }}
+                                >
+                                    <Text style={{ color: "#fff",  paddingVertical: 15, paddingHorizontal: 8, }}>{group.title}</Text>
+                                </TouchableOpacity>                            
                         ))
                     }
                     </View>
-                    
                 </ScrollView>
             </SafeAreaView>
         </View>
