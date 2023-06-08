@@ -29,7 +29,7 @@ const MainNavigation = ({navigation}) => {
     )
     
     return (
-        <Drawer.Navigator initialRouteName="Гловный"
+        <Drawer.Navigator initialRouteName="Главный"
             screenOptions={{
                 // drawerActiveTintColor: "#fff",
                 headerTintColor: "#fff",
@@ -46,7 +46,7 @@ const MainNavigation = ({navigation}) => {
                 }
             }}
         >
-            <Drawer.Screen name="Гловный" component={GroupNavigation} />
+            <Drawer.Screen name="Главный" component={GroupNavigation} />
             <Drawer.Screen name="Создать" component={CreateGroupScreen} />
             <Drawer.Screen name="Профиль" component={ProfileScreen} />
         </Drawer.Navigator>

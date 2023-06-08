@@ -50,16 +50,16 @@ const SinginScreen = ({navigation}) => {
         <View style={{width: width, height: height-300, justifyContent: 'center', alignItems: 'center', }}>
             <View style={{  }}>
                 <View style={{ paddingBottom: 15, }}>
-                    <Text style={{ color: "#000", fontSize: 26, fontWeight: '400',  textAlign: 'center'}}>Qosh keldińiz</Text>
+                    <Text style={{ color: "#ACCFFF", fontSize: 26, fontWeight: '400', textAlign: 'center'}}>Qosh keldińiz</Text>
                 </View>
                 
                 <View style={{ paddingBottom: 25, paddingTop: 5, alignItems: 'center',  display: 'flex', flexDirection: 'row' }}>
                     <View style={{ paddingRight: 12 }}>
                         <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                            <Text style={{ color: "#000", fontSize: 18, padding: 5, }}>Почта</Text>
+                            <Text style={{ color: "#A6ACAF", fontSize: 18, padding: 5, }}>Почта</Text>
                         </View>
                         <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                            <Text style={{ color: "#000", fontSize: 18, padding: 5, }}>Пароль</Text>
+                            <Text style={{ color: "#A6ACAF", fontSize: 18, padding: 5, }}>Пароль</Text>
                         </View>
                         
                     </View> 
@@ -71,7 +71,7 @@ const SinginScreen = ({navigation}) => {
                                 maxLength={50}
                                 onChangeText={uLogin => onPressChangeTextInputLogin(uLogin)} 
                                 value={login}
-                                style={{ color:"#000", width: 230, height: 32, padding: 8, borderColor: "#000", borderWidth: 1, }}
+                                style={{ color:"#000", width: 230, height: 32, borderRadius: 8, padding: 8, borderColor: "#ACCFFF", borderWidth: 1, }}
                             />
                         </View>
                      {/* password */}
@@ -81,29 +81,28 @@ const SinginScreen = ({navigation}) => {
                                 maxLength={50}
                                 onChangeText={uPass => onPressChangeTextInputPassword(uPass)} 
                                 value={password}
-                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderColor: "#000", borderWidth: 1, }}
+                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderRadius: 8, borderColor: "#ACCFFF", borderWidth: 1, }}
                             />
                         </View>
                     </View>
                 </View>
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center',  }}>
                     <View style={{ width: 180, }}>
-                        <Button 
+                        <Text
+                            style={{backgroundColor: "#ACCFFF", textAlign: 'center', paddingHorizontal: 5, paddingVertical: 5, color: "#fff", fontSize: 18, borderRadius: 8, }}
                             onPress={()=> onPressLogin()}
-                            color="#000"
-                            title={'kirý'}
-                        />
+                        >кіру</Text>
                     </View>
                 </View>
-                <View style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 5, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <TouchableOpacity onPress={()=> console.log('e') }>
+                <View style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 5, display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+                    {/* <TouchableOpacity onPress={()=> console.log('e') }>
                         <View style={{ padding: 15}}>
                             <Text style={{color: "#000"}} >qupıa sózdi umytyp qaldym</Text>
                         </View>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                     <TouchableOpacity onPress={()=> onPressAuth() }>
                         <View style={{ padding: 15}}>
-                            <Text style={{color: "#000"}}>tirkeý</Text>
+                            <Text style={{color: "#A6ACAF"}}>tirkeý</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

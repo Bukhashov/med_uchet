@@ -27,6 +27,9 @@ router.post('/group/remove/user', Group.RemoveUser);
 
 router.get('/group/file/:gid/:tid/', Group.getTodoFile)
 router.post('/group/:gid/add/todo', Group.addTodo);
+router.post('/group/:gid/add/report', Group.reportAdd);
+router.get('/group/:gid/:title/report', Group.getReport);
+
 router.post('/group/del/todo', Group.deleteTodo);
 
 router.get('/group/seorch/:title', Group.Seorch);

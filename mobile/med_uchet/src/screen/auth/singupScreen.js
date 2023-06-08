@@ -41,22 +41,22 @@ const SingupScreen = ({navigation}) => {
         <View style={{width: width, height: height-300, justifyContent: 'center', alignItems: 'center', }}>
             <View style={{  }}>
                 <View style={{ paddingBottom: 15, }}>
-                    <Text style={{ color: "#000", fontSize: 26, fontWeight: '400',  textAlign: 'center'}}>Qosh keldińiz</Text>
+                    <Text style={{ color: "#ACCFFF", fontSize: 26, fontWeight: '400',  textAlign: 'center'}}>Qosh keldińiz</Text>
                 </View>
 
                 <View style={{ paddingBottom: 25, paddingTop: 5, alignItems: 'center',  display: 'flex', flexDirection: 'row' }}>
                     <View style={{ paddingRight: 12 }}>
                             <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                                <Text style={{ color: "#000", fontSize: 18, padding: 5, }}>Fistname</Text>
+                                <Text style={{ color: "#A6ACAF", fontSize: 18, padding: 5, }}>Fistname</Text>
                             </View>
                             <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                                <Text style={{ color: "#000", fontSize: 18, padding: 5, }}>Lastname</Text>
+                                <Text style={{ color: "#A6ACAF", fontSize: 18, padding: 5, }}>Lastname</Text>
                             </View>
                             <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                                <Text style={{ color: "#000", fontSize: 18, padding: 5, }}>Email</Text>
+                                <Text style={{ color: "#A6ACAF", fontSize: 18, padding: 5, }}>Email</Text>
                             </View>
                             <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                                <Text style={{ color: "#000", fontSize: 18, padding: 5, }}>Password</Text>
+                                <Text style={{ color: "#A6ACAF", fontSize: 18, padding: 5, }}>Password</Text>
                             </View>
                             
                         </View> 
@@ -69,7 +69,7 @@ const SingupScreen = ({navigation}) => {
                                 maxLength={50}
                                 onChangeText={vel => onPressChangeTextInputFirstname(vel)} 
                                 value={firstname}
-                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderColor: "#000", borderWidth: 1, }}
+                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderRadius: 8, borderColor: "#ACCFFF", borderWidth: 1, }}
                             />
                         </View>
                     {/* lastname */}
@@ -79,7 +79,7 @@ const SingupScreen = ({navigation}) => {
                                 maxLength={50}
                                 onChangeText={vel => onPressChangeTextInputLastname(vel)} 
                                 value={lastname}
-                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderColor: "#000", borderWidth: 1, }}
+                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderRadius: 8, borderColor: "#ACCFFF", borderWidth: 1, }}
                             />
                     </View>
                     {/* email */}
@@ -89,7 +89,7 @@ const SingupScreen = ({navigation}) => {
                                 maxLength={50}
                                 onChangeText={uLogin => onPressChangeTextInputLogin(uLogin)} 
                                 value={login}
-                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderColor: "#000", borderWidth: 1, }}
+                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderRadius: 8, borderColor: "#ACCFFF", borderWidth: 1, }}
                             />
                         </View>
                      {/* password */}
@@ -98,18 +98,16 @@ const SingupScreen = ({navigation}) => {
                                 numberOfLines={1} maxLength={50}
                                 onChangeText={uPass => onPressChangeTextInputPassword(uPass)} 
                                 value={password}
-                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderColor: "#000", borderWidth: 1, }}
+                                style={{ color: "#000", width: 230, height: 32, padding: 8, borderRadius: 8, borderColor: "#ACCFFF", borderWidth: 1, }}
                             />
                         </View>
                     </View>
                 </View>
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center',  }}>
                     <View style={{ width: 180, }}>
-                        <Button 
-                            onPress={()=> onPressAuth()}
-                            color="#000"
-                            title={'tirkeý'}
-                        />
+                        <Text 
+                            onPress={()=> onPressAuth()} 
+                            style={{backgroundColor: "#ACCFFF", textAlign: 'center', paddingHorizontal: 5, paddingVertical: 5, color: "#fff", fontSize: 18, borderRadius: 8, }}>регистрация</Text>
                     </View>
                 </View>
             </View>

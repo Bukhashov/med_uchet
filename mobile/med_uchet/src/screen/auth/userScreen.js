@@ -11,7 +11,7 @@ const AccountScreen = ({navigation}) => {
     const [firstname, setFirstname] = useState("");
     const [email, setEmail] = useState("");
     const [uid, setUid] = useState("");
-    const [avatar, setAvatar] = useState("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.colorhexa.com%2Fcbd5e1&psig=AOvVaw1E5lriPtg2-IcEscmnNWoG&ust=1680853533755000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCODYpsDhlP4CFQAAAAAdAAAAABAI");
+    // const [avatar, setAvatar] = useState("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.colorhexa.com%2Fcbd5e1&psig=AOvVaw1E5lriPtg2-IcEscmnNWoG&ust=1680853533755000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCODYpsDhlP4CFQAAAAAdAAAAABAI");
 
     const getUserData = async () => {
         try{
@@ -44,7 +44,7 @@ const AccountScreen = ({navigation}) => {
             <ScrollView horizontal={false} showsHorizontalScrollIndicator={true}> 
                 <View style={{  }}>
                     <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', padding: 12}}>
-                        <Avatar size={120} rounded source={{uri: avatar}} />
+                        <View style={{ width: 150, height: 150, backgroundColor: "#fff", borderRadius: 50, }} />
                     </View>
 
                     <UserInfoComponent title={"Фамилия:"} vel={lastname} />
@@ -52,8 +52,8 @@ const AccountScreen = ({navigation}) => {
                     <UserInfoComponent title={"Почта"} vel={email} />                
                     <UserInfoComponent title={"UID"} vel={uid} /> 
 
-                    <View style={{margin: 5, padding: 5, display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                        <Text style={{color: "#000", borderRadius: 8, borderColor: '#A5ABAB', borderWidth: 1, paddingHorizontal: 15, paddingVertical: 10 }} onPress={()=> {onPressLogout()}}>выйти</Text>
+                    <View style={{margin: 5,  padding: 5, display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                        <Text style={{color: "#B3B6B7", borderRadius: 8, borderColor: '#ACCFFF', borderWidth: 1, paddingHorizontal: 15, paddingVertical: 10 }} onPress={()=> {onPressLogout()}}>выйти</Text>
                     </View>
                 </View>
             </ScrollView>

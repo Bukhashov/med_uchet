@@ -1,5 +1,6 @@
 const modelGroup = require('../models/group');
 const modelTodo = require('../models/todo');
+const report = require('../models/report');
 const path = require('path');
 const fs = require("fs");
 
@@ -53,6 +54,38 @@ class Group {
         const allGroup = await modelGroup.find({ participants: uid });
         res.status(200).json(allGroup);
     }
+
+    reportAdd = async (req, res) => {
+        const { gid } = req.params;
+        const { file } = req.files;
+        const { fullname, title } = req.body;
+
+        let LastFullname = fullname[fullname.length-1];
+        let LastTitle = title[title.length-1];
+
+        new report({
+            fullname: LastFullname,
+            group_id: gid,
+            title: LastTitle
+        }).save();
+
+        let file_dir = `${path.join(__dirname, '../../public/report')}/${gid}`;
+        createDir(file_dir)
+        
+        file_dir += `/${LastFullname}`;
+        createDir(file_dir)
+                
+        let type = file[file.length-1].name.split('.').pop();
+
+        await file[file.length-1].mv(`${file_dir}/${LastTitle}.${type}`, function(err) {
+            if(err) {
+               console.log(`err: ${err}`);
+            }
+        })
+        
+        res.status(201).json({massage: "saved"});
+    }
+
     // GET GROUP
     getGroup = async (req, res) => {
         const { gid } = req.params;
@@ -70,27 +103,24 @@ class Group {
         
     }
 
-    addReport = async (req, res) => {
-        const { gid } = req.params;
-        const { file } = req.files;
-        const { title, subject, todo_id, uid } = req.body;
     
-    }
 
     addTodo = async (req, res) => {
         try{
             const { gid } = req.params;
             const { file } = req.files;
-            const { title, subject, todo_id } = req.body;
+            const { title, subject } = req.body;
+
+            let LastTitle = title[title.length-1];
+            let LastSubject = subject[subject.length-1];
 
             let newTodoId;
 
             new modelTodo({
                 group: gid,
-                title: title,
-                subject: subject,
-            }).save((err, result) => {
-                console.log(err);
+                title: LastTitle,
+                subject: LastSubject,
+            }).save(async (err, result) => {                
                 newTodoId = String(result._id);
             });
 
@@ -98,10 +128,12 @@ class Group {
             
             createDir(file_dir)
 
-            const type = file.name.split('.').pop();
-            await file.mv(`${file_dir}/${todo_id}.${type}`, function(err) {
+            let type = file[file.length-1].name.split('.').pop();
+            console.log(LastTitle);
+
+            await file[file.length-1].mv(`${file_dir}/${LastTitle}.${type}`, function(err) {
                 if(err) {
-                   console.log(err);
+                   console.log(`err: ${err}`);
                 }
             })
             
@@ -118,6 +150,13 @@ class Group {
         const todos = await modelTodo.find({group: gid});
         res.status(200).json(todos);
     }
+
+    getReport = async (req, res) => {
+        const { gid, title } = req.params;  
+        const reports = await report.find({ group_id: gid, title: title });
+        res.status(200).json(reports);
+    }
+
     getTodoFile = async (req, res) => {
         const {gid, tid} = req.params;
         res.download(`${path.join(__dirname, '../../public/pdf')}/${gid}/${tid}.pdf`);

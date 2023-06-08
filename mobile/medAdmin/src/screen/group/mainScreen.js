@@ -5,7 +5,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import config from "../../../config";
 
-
 var width = Dimensions.get('window').width;
 
 const MainScreen = ({navigation}) => {
@@ -48,7 +47,9 @@ const MainScreen = ({navigation}) => {
                                     key={group._id}
                                     onPress={() => {
                                         navigation.navigate('ReadScreen', {
-                                            
+                                            content: {
+                                                gid: group._id,
+                                            }
                                         });
                                     }}
                                 >

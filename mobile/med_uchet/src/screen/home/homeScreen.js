@@ -38,7 +38,7 @@ const HomeScreen = ({navigation}) => {
                             key={group._id}
                             onPress={() => {navigation.navigate("homeReadScreen", {
                                 content: {
-                                    id: group._id,
+                                    gid: group._id,
                                     title: group.title
                                 }
                             })}}
@@ -49,10 +49,10 @@ const HomeScreen = ({navigation}) => {
                                 paddingHorizontal: 18,
                                 paddingVertical: 18,
                                 borderRadius: 8,
-                                backgroundColor: "#A5ABAB",
+                                backgroundColor: "#839192",
                                 
                             }}>
-                                <Text style={{ color: "#fff", fontSize: 16 }}>{group.title}</Text>
+                                <Text style={{ color: "#FFF", fontSize: 16 }}>{group.title}</Text>
                             </View>
                         </TouchableOpacity>
                     ))

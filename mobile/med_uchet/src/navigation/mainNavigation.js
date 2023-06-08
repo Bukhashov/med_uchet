@@ -3,8 +3,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
+import { View, Text, Image} from 'react-native';
 // Screen
-import GroupNavigation from './groupNavigation';
 import HomeNavigation from './homeNavigation';
 import ProfileScreen from '../screen/auth/userScreen';
 
@@ -38,41 +38,52 @@ const MainNavigation = ({navigation}) => {
                     if(route.name === "Главный") {
                         iconName = focused ? 'home' : 'home-outline' 
                     }
-                    else if (route.name === "Группа") {
-                        iconName = focused ? 'people' : 'people-outline' 
-                    }
                     else if (route.name === "Пользователь") {
                         iconName = focused ? 'person' : 'person-outline' 
                     }
                     return <Ionicons name={iconName} size={size} color={color} />
                 },
+                tabBarActiveTintColor: "#fff",
+                tabBarInactiveTintColor: "#fff",
                 tabBarStyle: {
-                    backgroundColor:'#fff',
-                    height: 60,
+                    backgroundColor:'#ACCFFF',
+                    height: 80,
+                    borderTopEndRadius: 12,
+                    borderTopStartRadius: 12,
                     // borderTopColor: "#fff",
                     // borderWidth: 1,
                 },
                 tabBarItemStyle: {
-                    margin:5,
+                    margin:10,
                     
                     //borderRadius:10,
                 },
+                headerTitle: (props) => <LogoTitle {...props} />,
                 headerStyle: {
-                    backgroundColor:'#fff',
+                    backgroundColor:'#ACCFFF',
                     // borderBottomColor: "#fff",
                     // borderWidth: 1,
                 },
                 headerTitleStyle: {
-                    color: '#000',
+                    color: '#fff',
 
                 },
             })}
         >
             <Tab.Screen name="Главный"  component={HomeNavigation} />
-            <Tab.Screen name="Группа" component={GroupNavigation} />
             <Tab.Screen name="Пользователь" component={ProfileScreen} />
         </Tab.Navigator>
     )
 }
 
 export default MainNavigation;
+
+const LogoTitle = (props) => {
+    console.log(props)
+    return (
+        <View style={{ display: 'flex', flexDirection: 'row', }}>
+            <Image style={{ width: 32, height: 32, padding: 5, }} source={require('../constants/logo.png')} />
+            <Text style={{ color: "#fff", fontSize: 20, fontWeight: '600'}}>{props.children}</Text>
+        </View>
+    )
+}
